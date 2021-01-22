@@ -115,6 +115,11 @@ export default {
         },
 
         isWatchingComponent(component) {
+            if (component.field.attribute.includes(__)) {
+                return component.field !== undefined
+                    && component.field.attribute.split('__')[1] == this.field.parent_attribute;
+            }
+
             return component.field !== undefined
                 && component.field.attribute == this.field.parent_attribute;
         }
